@@ -13,7 +13,7 @@ const resolve = require('rollup-plugin-node-resolve');
 const fs = require('fs');
 const argv = require('minimist')(process.argv.slice(2));
 const Modules = require('./modules');
-const Bundles = require('./bundles');
+const Bundles = require('./bundles'); //rollup bundles 绑定设置
 const Stats = require('./stats');
 const Sync = require('./sync');
 const sizes = require('./plugins/sizes-plugin');
@@ -36,9 +36,9 @@ process.on('unhandledRejection', err => {
 });
 
 const {
-  UMD_DEV,
-  UMD_PROD,
-  UMD_PROFILING,
+  UMD_DEV, //umd  开发环境
+  UMD_PROD, // umd 生产环境
+  UMD_PROFILING, //
   NODE_DEV,
   NODE_PROD,
   NODE_PROFILING,
@@ -202,6 +202,7 @@ function getFormat(bundleType) {
   }
 }
 
+// build 后 dist中生成的文件
 function getFilename(name, globalName, bundleType) {
   // we do this to replace / to -, for react-dom/server
   name = name.replace('/', '-');
@@ -295,6 +296,7 @@ function forbidFBJSImports() {
   };
 }
 
+// 获取bundle.js Bundle export 的属性
 function getPlugins(
   entry,
   externals,

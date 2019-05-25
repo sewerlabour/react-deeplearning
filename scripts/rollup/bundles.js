@@ -58,6 +58,7 @@ const {
 } = moduleTypes;
 
 const bundles = [
+  // 同构 目的是 为了server render
   /******* Isomorphic *******/
   {
     bundleTypes: [
@@ -568,6 +569,7 @@ const bundles = [
   },
 ];
 
+// Bundle 只读
 // Based on deep-freeze by substack (public domain)
 function deepFreeze(o) {
   Object.freeze(o);

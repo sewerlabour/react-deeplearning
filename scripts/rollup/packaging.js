@@ -34,6 +34,7 @@ function getPackageName(name) {
   return name;
 }
 
+// 打包输出的路径  build 好后的  node_modules npm 发布的 react就在其中
 function getBundleOutputPaths(bundleType, filename, packageName) {
   switch (bundleType) {
     case NODE_DEV:
